@@ -1,0 +1,20 @@
+sv xil_defaultlib  \
+"../../../../keyboardControl.sv" \
+"../../../../pwm.sv" \
+"../../../../receiver.sv" \
+"../../../../top_level.sv" \
+"../../../../pwm_enable.sv" \
+"../../../../inverse_kinematics.sv" \
+"../../../../ikKeyboardControl.sv" \
+"../../../../syncFIFO.sv" \
+"../../../../clk_divider.sv" \
+"../../../../clk_divider_tb.sv" \
+"../../../../pwm_tb.sv" \
+"../../../../pwm_enable_tb.sv" \
+"../../../../syncFIFO_tb.sv" \
+"../../../../div_gen_0_tb.sv" \
+
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
