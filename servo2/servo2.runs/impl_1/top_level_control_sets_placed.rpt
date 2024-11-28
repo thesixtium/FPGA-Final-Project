@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
-| Date         : Thu Nov 28 15:47:12 2024
+| Date         : Thu Nov 28 16:16:24 2024
 | Host         : hiccup running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file top_level_control_sets_placed.rpt
 | Design       : top_level
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    12 |
-|    Minimum number of control sets                        |    12 |
+| Total control sets                                       |    14 |
+|    Minimum number of control sets                        |    14 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    39 |
+| Unused register locations in slices containing registers |    32 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,11 +39,11 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    12 |
+| Total control sets |    14 |
 | >= 0 to < 4        |     0 |
 | >= 4 to < 6        |     1 |
 | >= 6 to < 8        |     0 |
-| >= 8 to < 10       |     3 |
+| >= 8 to < 10       |     5 |
 | >= 10 to < 12      |     0 |
 | >= 12 to < 14      |     2 |
 | >= 14 to < 16      |     0 |
@@ -58,33 +58,35 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              19 |            6 |
+| No           | No                    | No                     |              28 |            9 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |             345 |           97 |
-| Yes          | No                    | No                     |              25 |            8 |
+| No           | Yes                   | No                     |             391 |          114 |
+| Yes          | No                    | No                     |              17 |            5 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              20 |           13 |
+| Yes          | Yes                   | No                     |              44 |           15 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------+------------------------------------------------+-----------------------------------------------------+------------------+----------------+--------------+
-|  Clock Signal  |                  Enable Signal                 |                   Set/Reset Signal                  | Slice Load Count | Bel Load Count | Bels / Slice |
-+----------------+------------------------------------------------+-----------------------------------------------------+------------------+----------------+--------------+
-|  clk_IBUF_BUFG | nolabel_line27/nolabel_line13/bitcounter       | nolabel_line27/nolabel_line13/bitcounter[3]_i_1_n_0 |                1 |              4 |         4.00 |
-|  clk_IBUF_BUFG | nolabel_line27/nolabel_line24/E[0]             | reset_IBUF                                          |                7 |              8 |         1.14 |
-|  clk_IBUF_BUFG | nolabel_line27/nolabel_line24/dout_reg[6]_0[0] | reset_IBUF                                          |                5 |              8 |         1.60 |
-|  clk_IBUF_BUFG | nolabel_line27/nolabel_line13/rxshiftreg       |                                                     |                3 |              9 |         3.00 |
-|  clk_IBUF_BUFG |                                                | nolabel_line27/nolabel_line13/counter[0]_i_1_n_0    |                3 |             12 |         4.00 |
-|  clk_IBUF_BUFG | nolabel_line27/nolabel_line24/p_0_in0_out      |                                                     |                2 |             12 |         6.00 |
-|  clk_IBUF_BUFG | nolabel_line27/nolabel_line24/dout[7]_i_1_n_0  |                                                     |                5 |             16 |         3.20 |
-|  clk_IBUF_BUFG |                                                | elbowPWM/clear                                      |                5 |             18 |         3.60 |
-|  clk_IBUF_BUFG |                                                | shoulderPWM/clear                                   |                5 |             18 |         3.60 |
-|  clk_IBUF_BUFG |                                                |                                                     |                6 |             19 |         3.17 |
-|  clk_IBUF_BUFG |                                                | reset_IBUF                                          |               20 |             41 |         2.05 |
-|  clk_IBUF_BUFG |                                                | nolabel_line37/current_clk_cycles[0]_i_1_n_0        |               64 |            256 |         4.00 |
-+----------------+------------------------------------------------+-----------------------------------------------------+------------------+----------------+--------------+
++----------------+--------------------------------------------------------+-----------------------------------------------------+------------------+----------------+--------------+
+|  Clock Signal  |                      Enable Signal                     |                   Set/Reset Signal                  | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------+--------------------------------------------------------+-----------------------------------------------------+------------------+----------------+--------------+
+|  clk_IBUF_BUFG | nolabel_line27/nolabel_line13/bitcounter               | nolabel_line27/nolabel_line13/bitcounter[3]_i_1_n_0 |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | nolabel_line17/count12_out                             | reset_IBUF                                          |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | nolabel_line27/nolabel_line24/dout_reg[1]_0[0]         | reset_IBUF                                          |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG | nolabel_line27/nolabel_line24/dout[7]_i_1_n_0          |                                                     |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | nolabel_line27/nolabel_line24/E[0]                     | reset_IBUF                                          |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | nolabel_line27/nolabel_line13/rxshiftreg               |                                                     |                3 |              9 |         3.00 |
+|  clk_IBUF_BUFG |                                                        | nolabel_line27/nolabel_line13/counter[0]_i_1_n_0    |                3 |             12 |         4.00 |
+|  clk_IBUF_BUFG | nolabel_line27/nolabel_line24/fifo_reg_0_1_0_5_i_1_n_0 |                                                     |                2 |             12 |         6.00 |
+|  clk_IBUF_BUFG | nolabel_line17/count                                   | nolabel_line17/count[0]_i_1_n_0                     |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG |                                                        | elbowPWM/clear                                      |                5 |             18 |         3.60 |
+|  clk_IBUF_BUFG |                                                        | shoulderPWM/clear                                   |                5 |             18 |         3.60 |
+|  clk_IBUF_BUFG |                                                        |                                                     |                9 |             36 |         4.00 |
+|  clk_IBUF_BUFG |                                                        | reset_IBUF                                          |               37 |             87 |         2.35 |
+|  clk_IBUF_BUFG |                                                        | nolabel_line37/current_clk_cycles[0]_i_1_n_0        |               64 |            256 |         4.00 |
++----------------+--------------------------------------------------------+-----------------------------------------------------+------------------+----------------+--------------+
 
 

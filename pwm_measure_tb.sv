@@ -34,6 +34,18 @@ module pwm_measure_tb();
         pwm_in = 0;
         #(40 * CLK_PERIOD);
         
+        pwm_in = 1;
+        #(5 * CLK_PERIOD);
+        
+        pwm_in = 0;
+        #(40 * CLK_PERIOD);
+        
+        pwm_in = 1;
+        #(500 * CLK_PERIOD);
+        
+        pwm_in = 0;
+        #(40 * CLK_PERIOD);
+        
         // data = 2;
         // #(20 * CLK_PERIOD);
         

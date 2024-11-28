@@ -13,13 +13,13 @@ module top_level(
     output logic elbow_servo
     );
     
-    //logic [15:0] distance;
-    //pwm_measure (
-    //    .clk(clk),
-    //    .reset(reset),
-    //    .pwm_in(ultrasonic),
-    //    .distance(distance)
-    //);
+    logic [15:0] distance;
+    pwm_measure (
+        .clk(clk),
+        .reset(reset),
+        .pwm_in(ultrasonic),
+        .distance(distance)
+    );
     
     logic [7:0] data;
     logic [7:0] x;
@@ -52,11 +52,11 @@ module top_level(
         .elbow_angle(elbow_angle)
     );
    
-    assign led[15] = en;
-    assign led[14:12] = x[2:0];
-    assign led[11:9] = y[2:0];
-    assign led[7:0] = data;
-    // assign led = distance;
+    // assign led[15] = en;
+    // assign led[14:12] = x[2:0];
+    // assign led[11:9] = y[2:0];
+    // assign led[7:0] = data;
+    assign led = distance;
     
     pwm shoulderPWM (clk, en, shoulder_angle, shoulder_servo);
     pwm elbowPWM    (clk, en, elbow_angle, elbow_servo);
