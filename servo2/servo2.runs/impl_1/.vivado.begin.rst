@@ -3,3 +3,28 @@
     <Process Command="vivado.bat" Owner="ajrbe" Host="HICCUP" Pid="11248" HostCore="20" HostMemory="033947570176">
     </Process>
 </ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="ajrbe" Host="HICCUP" Pid="24476" HostCore="20" HostMemory="033947570176">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="ajrbe" Host="HICCUP" Pid="26520" HostCore="20" HostMemory="033947570176">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="ajrbe" Host="HICCUP" Pid="9612" HostCore="20" HostMemory="033947570176">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="ajrbe" Host="HICCUP" Pid="34956" HostCore="20" HostMemory="033947570176">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="ajrbe" Host="HICCUP" Pid="14684" HostCore="20" HostMemory="033947570176">
+    </Process>
+</ProcessHandle>

@@ -1,13 +1,10 @@
-module keyboardControl (
+module keyboardControl #(parameter X_MAX=4, Y_MAX=4) (
     input  logic clk,
     input  logic reset,
     input  logic rx,
     output logic [7:0] data,
-    output logic [23:0] shoulder_angle,
-    output logic [23:0] elbow_angle,
-    output logic [23:0] base_angle,
-    output logic slow_clk,
-    output logic [2:0] state
+    output logic [7:0] x,
+    output logic [7:0] y
 ); 
 
     logic [7:0] data_in;
@@ -43,32 +40,27 @@ module keyboardControl (
     
     always @(posedge clk) begin
         if (reset) begin
-            elbow_angle = 145000;
-            shoulder_angle = 180000;
-        end else begin
+            x <= 1;
+            y <= 1;
+        end else if ( data_old ^ data ) begin
             case(data)
-                8'b0111_0111 :  begin
-                    elbow_angle <= 55000; // W - 135 Degrees
-                    shoulder_angle <= 180000;
+                8'b0111_0111 :  begin  // W
+                    y <= (y + 1) % (Y_MAX + 1);
                 end
-                8'b0110_0001 :  begin
-                    elbow_angle <= 100000; // A - 45 Degrees
-                    shoulder_angle <= 1790000;
+                8'b0110_0001 :  begin  // A
+                    x <= x - 1;
                 end
-                8'b0111_0011 :  begin
-                    elbow_angle <= 1450000; // S
-                    shoulder_angle <= 181000;
+                8'b0111_0011 :  begin  // S
+                    y <= y - 1;
                 end
-                8'b0110_0100 :  begin
-                    elbow_angle <= 185000;  // D
-                    shoulder_angle <= 178000;
+                8'b0110_0100 :  begin  // D
+                    x <= (x + 1) % (X_MAX + 1);
+                end
+                default : begin
+                    x <= x;
+                    y <= y;
                 end
             endcase
         end
     end
-    
-    // assign shoulder_angle = elbow_angle;
-    // assign base_angle = 0;
-    
-    
 endmodule
