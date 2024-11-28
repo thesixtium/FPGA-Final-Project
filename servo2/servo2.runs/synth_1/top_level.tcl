@@ -86,6 +86,7 @@ read_verilog -library xil_defaultlib -sv {
   {C:/Users/ajrbe/Documents/School/ENEL 453/servo2/syncFIFO.sv}
   {C:/Users/ajrbe/Documents/School/ENEL 453/servo2/clk_divider.sv}
   {C:/Users/ajrbe/Documents/School/ENEL 453/servo2/divider.sv}
+  {C:/Users/ajrbe/Documents/School/ENEL 453/servo2/pwm_measure.sv}
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
