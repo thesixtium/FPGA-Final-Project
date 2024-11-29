@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
-| Date             : Thu Nov 28 18:53:03 2024
+| Date             : Fri Nov 29 01:12:07 2024
 | Host             : hiccup running 64-bit major release  (build 9200)
 | Command          : report_power -file top_level_power_routed.rpt -pb top_level_power_summary_routed.pb -rpx top_level_power_routed.rpx
 | Design           : top_level
@@ -52,16 +52,16 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.005 |        3 |       --- |             --- |
-| Slice Logic              |    <0.001 |    16420 |       --- |             --- |
-|   LUT as Logic           |    <0.001 |      483 |     20800 |            2.32 |
+| Clocks                   |     0.006 |        3 |       --- |             --- |
+| Slice Logic              |    <0.001 |    16379 |       --- |             --- |
+|   LUT as Logic           |    <0.001 |      457 |     20800 |            2.20 |
 |   LUT as Shift Register  |    <0.001 |     5008 |      9600 |           52.17 |
-|   CARRY4                 |    <0.001 |      158 |      8150 |            1.94 |
-|   Register               |    <0.001 |    10586 |     41600 |           25.45 |
+|   CARRY4                 |    <0.001 |      160 |      8150 |            1.96 |
+|   Register               |    <0.001 |    10564 |     41600 |           25.39 |
 |   LUT as Distributed RAM |    <0.001 |        6 |      9600 |            0.06 |
-|   Others                 |     0.000 |       23 |       --- |             --- |
-| Signals                  |    <0.001 |    12213 |       --- |             --- |
-| I/O                      |    <0.001 |       24 |       106 |           22.64 |
+|   Others                 |     0.000 |       24 |       --- |             --- |
+| Signals                  |    <0.001 |    12194 |       --- |             --- |
+| I/O                      |    <0.001 |       25 |       106 |           23.58 |
 | Static Power             |     0.072 |          |           |                 |
 | Total                    |     0.079 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+

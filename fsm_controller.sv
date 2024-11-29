@@ -70,4 +70,12 @@ module fsm_controller (
    
     pwm shoulderPWM (clk, pwm_en | ultrasonicControlled, shoulder_angle, shoulder_servo);
     pwm elbowPWM    (clk, pwm_en | ultrasonicControlled, elbow_angle, elbow_servo);
+    
+    // transmitter (
+    //     .clk(clk), //UART input clock
+    //     .reset(reset), // reset signal
+    //    .transmit(1), //btn signal to trigger the UART communication
+    //     .data({inverse_kinematics_x[3:0], inverse_kinematics_y[3:0]}), // data transmitted
+    //     NEED TO ADD TX TO THE TOP .TxD(tx) // Transmitter serial output. TxD will be held high during reset, or when no transmissions aretaking place. 
+    // );
 endmodule

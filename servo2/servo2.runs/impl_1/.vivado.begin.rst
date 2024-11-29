@@ -93,3 +93,13 @@
     <Process Command="vivado.bat" Owner="ajrbe" Host="HICCUP" Pid="9080" HostCore="20" HostMemory="033947570176">
     </Process>
 </ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="ajrbe" Host="HICCUP" Pid="42056" HostCore="20" HostMemory="033947570176">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="ajrbe" Host="HICCUP" Pid="21412" HostCore="20" HostMemory="033947570176">
+    </Process>
+</ProcessHandle>

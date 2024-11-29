@@ -90,6 +90,7 @@ read_verilog -library xil_defaultlib -sv {
   {C:/Users/ajrbe/Documents/School/ENEL 453/servo2/averager.sv}
   {C:/Users/ajrbe/Documents/School/ENEL 453/servo2/fsm.sv}
   {C:/Users/ajrbe/Documents/School/ENEL 453/servo2/fsm_controller.sv}
+  {C:/Users/ajrbe/Documents/School/ENEL 453/servo2/transmitter.sv}
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
