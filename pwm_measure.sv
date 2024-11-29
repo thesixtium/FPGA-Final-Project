@@ -2,7 +2,7 @@ module pwm_measure (
     input logic clk,
     input logic reset,
     input logic pwm_in,
-    output logic [15:0] distance
+    output logic [7:0] distance
 );
 
     logic [23:0] count;
@@ -18,7 +18,7 @@ module pwm_measure (
             count <= 0;
             raw_distance <= 0;        
         end else if ( pwm_in == 0 && old_pwm_in == 1) begin
-            raw_distance <= count >> 8;
+            raw_distance <= count;
         end else if ( pwm_in == 1 && old_pwm_in == 0) begin
             count <= 0;
         end else if ( pwm_in == 1 && old_pwm_in == 1) begin
@@ -26,12 +26,21 @@ module pwm_measure (
         end
     end
     
-    averager #(4, 16)(
+    logic [15:0] Q;
+    averager #(10000, 16)(
         .clk(clk),
         .reset(reset),
         .EN(1),
         .Din(raw_distance),
-        .Q(distance)
+        .Q(Q)
+    );
+    
+    divider (
+        .clk(clk),
+        .reset(reset),
+        .x(Q),
+        .y(146),
+        .a(distance)
     );
 
 endmodule

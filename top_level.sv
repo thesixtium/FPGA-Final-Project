@@ -13,51 +13,59 @@ module top_level(
     output logic elbow_servo
     );
     
-    logic [15:0] distance;
-    pwm_measure (
+    logic [1:0] state;
+    logic keyboardControlled;
+    logic ultrasonicControlled;
+    fsm f (
+        .clk(clk),
+        .reset(reset),
+        
+        .right(switches_inputs[0]),
+        .left(switches_inputs[15]),
+        
+        .state(state),
+        .keyboardControlled(keyboardControlled),
+        .ultrasonicControlled(ultrasonicControlled)
+    );
+    
+    logic [7:0] ultrasonic_x;
+    logic [7:0] ultrasonic_y = 2;
+    pwm_measure pwmm (
         .clk(clk),
         .reset(reset),
         .pwm_in(ultrasonic),
-        .distance(distance)
+        .distance(ultrasonic_x)
     );
     
     logic [7:0] data;
-    logic [7:0] x;
-    logic [7:0] y;
-    keyboardControl #(4, 4) (
+    logic [7:0] keyboard_x;
+    logic [7:0] keyboard_y;
+    keyboardControl #(4, 4) kbc (
         .clk(clk),
         .reset(reset),
         .rx(rx),
         .data(data),
-        .x(x),
-        .y(y)
+        .x(keyboard_x),
+        .y(keyboard_y)
     );
     
-    logic en;
-    pwm_enable #(24, 200000 * 700)(
+    fsm_controller fsmc (
+        .clk(clk),
+        .reset(reset),
+        
+        .keyboardControlled(keyboardControlled),
+        .keyboard_x(keyboard_x),
+        .keyboard_y(keyboard_y),
         .data(data),
-        .clk(clk),
-        .reset(reset),
-        .en(en)
+        
+        .ultrasonicControlled(ultrasonicControlled),
+        .ultrasonic_x(ultrasonic_x),
+        .ultrasonic_y(ultrasonic_y),
+        
+        
+        .led(led),
+        .shoulder_servo(shoulder_servo),
+        .elbow_servo(elbow_servo)
     );
     
-    logic [23:0] shoulder_angle;
-    logic [23:0] elbow_angle;
-    inverse_kinematics (
-        .clk(clk),
-        .reset(reset),
-        .x(x),
-        .y(y),
-        .shoulder_angle(shoulder_angle),
-        .elbow_angle(elbow_angle)
-    );
-   
-    // assign led[15] = en;
-    // assign led[14:12] = x[2:0];
-    // assign led[11:9] = y[2:0];
-    // assign led[7:0] = data;
-    assign led = distance;
-    
-    pwm shoulderPWM (clk, en, shoulder_angle, shoulder_servo);
-    pwm elbowPWM    (clk, en, elbow_angle, elbow_servo);
 endmodule

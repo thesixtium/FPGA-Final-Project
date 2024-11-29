@@ -16,7 +16,7 @@ module pwm_enable#(parameter N=8, CLK_CYCLES=10)(
         end else begin
             old_data <= data;
             data_different <= data_different | (old_data ^ data);
-            en <= current_clk_cycles <= CLK_CYCLES;
+            en <= ( current_clk_cycles <= CLK_CYCLES );
             
             if (data_different & ~(old_data ^ data)) begin
                 current_clk_cycles <= current_clk_cycles + 1;

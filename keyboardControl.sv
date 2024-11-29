@@ -40,25 +40,24 @@ module keyboardControl #(parameter X_MAX=4, Y_MAX=4) (
     
     always @(posedge clk) begin
         if (reset) begin
-            x <= 1;
-            y <= 1;
+            x <= 2;
+            y <= 4;
         end else if ( data_old ^ data ) begin
             case(data)
                 8'b0111_0111 :  begin  // W
                     y <= (y + 1) % (Y_MAX + 1);
                 end
+                
                 8'b0110_0001 :  begin  // A
-                    x <= x - 1;
-                end
-                8'b0111_0011 :  begin  // S
-                    y <= y - 1;
-                end
-                8'b0110_0100 :  begin  // D
                     x <= (x + 1) % (X_MAX + 1);
                 end
-                default : begin
-                    x <= x;
-                    y <= y;
+                
+                8'b0111_0011 :  begin  // S
+                    y <= (y + 1) % (Y_MAX + 1);
+                end
+                
+                8'b0110_0100 :  begin  // D
+                    x <= (x - 1) % (X_MAX + 1);
                 end
             endcase
         end
