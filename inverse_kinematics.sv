@@ -1,8 +1,11 @@
-// Python generated
+// File info:
+// - Python generated!
+// - Python script is my own script
+// - Lookup based on x and y values
 
 module inverse_kinematics (
-    input  logic        clk,
-    input  logic        reset,
+    input  logic clk,
+    input  logic reset,
     input  logic [7:0]  x,
     input  logic [7:0]  y,
     output logic [23:0] shoulder_angle,

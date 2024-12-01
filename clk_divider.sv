@@ -1,3 +1,7 @@
+// File info:
+// - Original file
+// - I think the logic was taken from class?
+
 module clk_divider (
     input  logic clk,
     input  logic reset,
@@ -9,14 +13,14 @@ module clk_divider (
 
     always_ff @(posedge clk) begin
         if (reset) begin
-            counter = 0;
-            slow_clk = 0;
+            counter <= 0;
+            slow_clk <= 0;
         end else begin
-            counter = counter + 1;
+            counter <= counter + 1;
             
             if (counter >= divisor) begin
-                counter = 9'd0;
-                slow_clk = ~slow_clk;
+                counter <= 9'd0;
+                slow_clk <= ~slow_clk;
             end
         end
     end

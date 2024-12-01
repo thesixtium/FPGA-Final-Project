@@ -1,3 +1,9 @@
+// File info:
+// - Original file
+
+// Divider works by subtracting divisor from dividend until the
+//     divisor is bigger than the dividen, then returning how
+//     many times that occured as the quotient
 module divider (
     input  logic        clk,
     input  logic        reset,

@@ -1,3 +1,6 @@
+// File info:
+// - Original file
+
 module pwm_enable#(parameter N=8, CLK_CYCLES=10)(
     input logic [N-1:0] data,
     input logic clk,
@@ -14,6 +17,7 @@ module pwm_enable#(parameter N=8, CLK_CYCLES=10)(
             data_different <= 0;
             current_clk_cycles <= 'b0;
         end else begin
+            // When data changes, set en high for CLK_CYCLES
             old_data <= data;
             data_different <= data_different | (old_data ^ data);
             en <= ( current_clk_cycles <= CLK_CYCLES );

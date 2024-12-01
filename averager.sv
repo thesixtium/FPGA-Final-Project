@@ -1,13 +1,16 @@
+// File info:
+//  - File from Lab 5 when we designed our own averager
+
 module averager 
     #(parameter int
         power = 8, // 2**N samples, default is 2**8 = 256 samples
         N = 12)    // # of bits to take the average of
     (
-    input  logic                 clk,            // Clock signal
-    input  logic                 reset,          // Asynchronous reset
+    input  logic clk,
+    input  logic reset,
     input logic EN,
-    input  logic [(N-1):0]     Din,            // Input data
-    output logic [(N-1):0]     Q               // Moving average output
+    input  logic [(N-1):0] Din,
+    output logic [(N-1):0] Q
 );
 
     logic [(N-1):0] s [0:(power-1)];

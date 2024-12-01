@@ -1,37 +1,38 @@
-// https://www.youtube.com/watch?v=zNln9hJ5J78
-// http://www.ee.ic.ac.uk/pcheung/teaching/DE1_EE/stores/sg90_datasheet.pdf
-// https://www.youtube.com/watch?v=JpzeoQI2MII
+// File info:
+// - Math and SV based on https://www.youtube.com/watch?v=zNln9hJ5J78
+// - Math based on http://www.ee.ic.ac.uk/pcheung/teaching/DE1_EE/stores/sg90_datasheet.pdf
+// - Math and SV based on https://www.youtube.com/watch?v=JpzeoQI2MII
 
-// Clock Frequency = 100 MHz
-// Servo Period = 20 ms
-// Clock Edges = 1 / Clock Frequency = 10 ns
-// Counter Length = Servo Period / Clock Edges = 2 000 000
-// Counter Bits = 2 ^ (21) - 1 = 2 097 151 -> 21 bits long
+// Math:
+// 1. Clock Frequency = 10 MHz
+// 2. Servo Period = 20 ms
+// 3. Clock Edges = 1 / Clock Frequency = 100 ns
+// 4. Counter Length = Servo Period / Clock Edges = 200 000
 
 module pwm (
     input  logic clk,
     input  logic en,
-    input  logic [23:0] angle,
+    input  logic [23:0] angle,  // Calibrated value, not degrees or radians
     output logic servo
 );
-    //localparam SERVO_PERIOD = 'd1999999;
     localparam SERVO_PERIOD = 'd199999;
 
     logic [20:0] counter;
 
     always @(posedge clk) begin
-        // Counter that resets every servo period (~20ms)
-        if(counter < SERVO_PERIOD)
+        // Counter that resets every servo period
+        if(counter < SERVO_PERIOD) begin
             counter <= counter + 1;
-        else
+        end else begin
             counter <= 0;
-	
-        // Duty cycle generation
-        if( ( counter < angle ) & en )
-            // High part of the duty cycle
+        end
+        
+        // Generate duty cycle
+        if( ( counter < angle ) & en ) begin
+            // Start of the signal high
             servo <= 1;
-        else
-            // Low part of the duty cycle
+        end else begin
             servo <= 0;
+        end
     end    
 endmodule

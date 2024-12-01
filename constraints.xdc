@@ -49,20 +49,20 @@ set_property -dict { PACKAGE_PIN L1    IOSTANDARD LVCMOS33 } [get_ports {led[15]
 
 
 ##7 Segment Display
-# set_property -dict { PACKAGE_PIN W7   IOSTANDARD LVCMOS33 } [get_ports {CA}]
-# set_property -dict { PACKAGE_PIN W6   IOSTANDARD LVCMOS33 } [get_ports {CB}]
-# set_property -dict { PACKAGE_PIN U8   IOSTANDARD LVCMOS33 } [get_ports {CC}]
-# set_property -dict { PACKAGE_PIN V8   IOSTANDARD LVCMOS33 } [get_ports {CD}]
-# set_property -dict { PACKAGE_PIN U5   IOSTANDARD LVCMOS33 } [get_ports {CE}]
-# set_property -dict { PACKAGE_PIN V5   IOSTANDARD LVCMOS33 } [get_ports {CF}]
-# set_property -dict { PACKAGE_PIN U7   IOSTANDARD LVCMOS33 } [get_ports {CG}]
+set_property -dict { PACKAGE_PIN W7   IOSTANDARD LVCMOS33 } [get_ports {CA}]
+set_property -dict { PACKAGE_PIN W6   IOSTANDARD LVCMOS33 } [get_ports {CB}]
+set_property -dict { PACKAGE_PIN U8   IOSTANDARD LVCMOS33 } [get_ports {CC}]
+set_property -dict { PACKAGE_PIN V8   IOSTANDARD LVCMOS33 } [get_ports {CD}]
+set_property -dict { PACKAGE_PIN U5   IOSTANDARD LVCMOS33 } [get_ports {CE}]
+set_property -dict { PACKAGE_PIN V5   IOSTANDARD LVCMOS33 } [get_ports {CF}]
+set_property -dict { PACKAGE_PIN U7   IOSTANDARD LVCMOS33 } [get_ports {CG}]
 
-# set_property -dict { PACKAGE_PIN V7   IOSTANDARD LVCMOS33 } [get_ports DP]
+set_property -dict { PACKAGE_PIN V7   IOSTANDARD LVCMOS33 } [get_ports DP]
 
-# set_property -dict { PACKAGE_PIN U2   IOSTANDARD LVCMOS33 } [get_ports {AN1}]
-# set_property -dict { PACKAGE_PIN U4   IOSTANDARD LVCMOS33 } [get_ports {AN2}]
-# set_property -dict { PACKAGE_PIN V4   IOSTANDARD LVCMOS33 } [get_ports {AN3}]
-# set_property -dict { PACKAGE_PIN W4   IOSTANDARD LVCMOS33 } [get_ports {AN4}]
+set_property -dict { PACKAGE_PIN U2   IOSTANDARD LVCMOS33 } [get_ports {AN1}]
+set_property -dict { PACKAGE_PIN U4   IOSTANDARD LVCMOS33 } [get_ports {AN2}]
+set_property -dict { PACKAGE_PIN V4   IOSTANDARD LVCMOS33 } [get_ports {AN3}]
+set_property -dict { PACKAGE_PIN W4   IOSTANDARD LVCMOS33 } [get_ports {AN4}]
 
 
 ##Buttons

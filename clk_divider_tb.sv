@@ -8,7 +8,7 @@ module clk_divider_tb();
     // Signals
     logic clk = 0;
     logic reset = 0;
-    logic [7:0] divisor = 0;
+    logic [31:0] divisor = 0;
     logic slow_clk = 0;
 
     // Instantiate the Unit Under Test (UUT)

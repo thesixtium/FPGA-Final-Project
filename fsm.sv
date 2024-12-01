@@ -1,3 +1,7 @@
+// File info
+//  - Original
+//  - Decides states of the FSM
+
 module fsm (
     input logic clk,
     input logic reset,
@@ -9,7 +13,7 @@ module fsm (
     output logic keyboardControlled,
     output logic ultrasonicControlled
 );
-
+    // Possible states:
     // 00: Selection of ultrasonic or keyboard (default)
     // 01: Ultrasonic
     // 10: Keyboard

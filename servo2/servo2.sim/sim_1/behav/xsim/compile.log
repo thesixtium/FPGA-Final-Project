@@ -24,6 +24,12 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/Scho
 INFO: [VRFC 10-311] analyzing module fsm
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/fsm_controller.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module fsm_controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/transmitter.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module transmitter
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/display.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module display
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/clk_pulse.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_pulse
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/clk_divider_tb.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module clk_divider_tb
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/pwm_tb.sv" into library xil_defaultlib
@@ -38,3 +44,5 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/Scho
 INFO: [VRFC 10-311] analyzing module pwm_measure_tb
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/divider_tb.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module divider_tb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/clk_pulse_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_pulse_tb
