@@ -4,7 +4,7 @@
 // - Changes from active low to active high reset
 // - Added a write clock and read clock (so it can go across clock domains)
 // - Added comments to show understanding
-
+// - Implements a synchronous first-in first-out queue
 
 module syncFIFO #(parameter DEPTH=8, DWIDTH=1000000)
 (

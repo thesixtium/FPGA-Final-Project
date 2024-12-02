@@ -1,21 +1,25 @@
+// File info
+// - Original
+// - Enacts the state-based logic of the finite state machine
+
 module fsm_controller (
-    input logic clk,
-    input logic reset,
-    input logic [1:0] state,
+    input logic clk,          // 10 MHz clock
+    input logic reset,        // Active high reset
+    input logic [1:0] state,  // FSM State
     
-    input logic keyboardControlled,
-    input logic [7:0] keyboard_x,
-    input logic [7:0] keyboard_y,
-    input logic [7:0] data,
+    input logic keyboardControlled,  // If the arm is keyboard controlled
+    input logic [7:0] keyboard_x,    // Desired arm x-coordinate if keyboard controlled
+    input logic [7:0] keyboard_y,    // Desired arm y-coordinate if keyboard controlled
+    input logic [7:0] data,          // Recieved UART data
     
-    input logic ultrasonicControlled,
-    input logic [7:0] ultrasonic_x,
-    input logic [7:0] ultrasonic_y,
+    input logic ultrasonicControlled,  // If the arm is ultrasonic controlled
+    input logic [7:0] ultrasonic_x,    // Desired arm x-coordinate if ultrasonic controlled
+    input logic [7:0] ultrasonic_y,    // Desired arm y-coordinate if ultrasonic controlled
     
-    output logic [15:0] led,
-    output logic shoulder_servo,
-    output logic elbow_servo,
-    output logic tx,
+    output logic [15:0] led,      // LEDs
+    output logic shoulder_servo,  // PWM for the shoulder servo
+    output logic elbow_servo,     // PWM for the elbow servo
+    output logic tx,              // Transmitting UART data
     
     // Display cathodes
     output logic CA,

@@ -7,17 +7,17 @@
 
 module top_level(
     // Inputs
-    input logic clk,
-    input logic reset,
-    input logic rx,
-    input logic ultrasonic,
-    input logic [15:0] switches_inputs,
+    input logic clk,         // 10 MHz clock
+    input logic reset,       // Middle button on Basys3
+    input logic rx,          // UART recieve
+    input logic ultrasonic,  // Ultrasonic sensor PWM
+    input logic [15:0] switches_inputs,  // Switches
     
     // Outputs
-    output logic tx,
-    output logic shoulder_servo,
-    output logic elbow_servo,
-    output logic [15:0] led,
+    output logic tx,              // UART transmit 
+    output logic shoulder_servo,  // Shoulder Servo PWM
+    output logic elbow_servo,     // Elbow Servo PWM
+    output logic [15:0] led,      // LEDs
     
     // Display cathodes
     output logic CA,

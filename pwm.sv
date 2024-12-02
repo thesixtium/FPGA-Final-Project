@@ -2,6 +2,7 @@
 // - Math and SV based on https://www.youtube.com/watch?v=zNln9hJ5J78
 // - Math based on http://www.ee.ic.ac.uk/pcheung/teaching/DE1_EE/stores/sg90_datasheet.pdf
 // - Math and SV based on https://www.youtube.com/watch?v=JpzeoQI2MII
+// - Output a PWM signal to control a servo
 
 // Math:
 // 1. Clock Frequency = 10 MHz
@@ -10,10 +11,11 @@
 // 4. Counter Length = Servo Period / Clock Edges = 200 000
 
 module pwm (
-    input  logic clk,
-    input  logic en,
+    input  logic clk,           // 10 MHz clock
+    input  logic en,            // Enable the PWM signal
     input  logic [23:0] angle,  // Calibrated value, not degrees or radians
-    output logic servo
+   
+    output logic servo          // Output PWM signal
 );
     localparam SERVO_PERIOD = 'd199999;
 

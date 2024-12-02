@@ -1,16 +1,19 @@
 // File info:
 // - File from Lab 5 when we designed our own averager
+// - Applies a moving average filter to incoming data
 
 module averager 
     #(parameter int
         power = 8, // 2**N samples, default is 2**8 = 256 samples
         N = 12)    // # of bits to take the average of
     (
-    input  logic clk,
-    input  logic reset,
-    input logic EN,
-    input  logic [(N-1):0] Din,
-    output logic [(N-1):0] Q
+    input logic clk,    // 10 MHz clock
+    input logic reset,  // Active high reset
+    input logic EN,     // Enable pin
+    
+    input logic [(N-1):0] Din,  // Data input
+    
+    output logic [(N-1):0] Q    // Averaged data
 );
     localparam MAX_SIZE = power * N;
 

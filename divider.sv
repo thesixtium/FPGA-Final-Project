@@ -5,12 +5,12 @@
 //     divisor is bigger than the dividen, then returning how
 //     many times that occured as the quotient
 module divider (
-    input  logic        clk,
-    input  logic        reset,
-    input  logic [31:0] x,     // Dividend
-    input  logic [31:0] y,     // Divisor
-    output logic [31:0] a,     // Quotient
-    output logic [31:0] b      // Remainder
+    input  logic clk,   // 10 MHz clock
+    input  logic reset, // Active high reset
+    input  logic [31:0] x,  // Dividend
+    input  logic [31:0] y,  // Divisor
+    output logic [31:0] a,  // Quotient
+    output logic [31:0] b   // Remainder
 );
 
     logic [1:0] state;

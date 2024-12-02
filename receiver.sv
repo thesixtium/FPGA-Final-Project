@@ -1,12 +1,14 @@
 // File info:
 // - Verilog copied from: https://www.instructables.com/UART-Communication-on-Basys-3-FPGA-Dev-Board-Power-1/
 // - Comments added to show understanding
+// - Receive bits from the Basys3's UART rx line and turn it into usable data
 
 module receiver (
-    input  logic clk,
-    input  logic reset,
-    input  logic rx,
-    output logic [7:0] data
+    input  logic clk,         // 10 MHz clock
+    input  logic reset,       // Active high reset
+    input  logic rx,          // UART recieve line
+    
+    output logic [7:0] data  // RX command recieved
 );
 
     logic shift;

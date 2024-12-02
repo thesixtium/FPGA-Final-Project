@@ -1,13 +1,15 @@
 // File info:
 // - Original file
+// - Change the desired x- and y-coordinates for the arm based on received rx commands
 
 module keyboardControl #(parameter X_MAX=4, Y_MAX=4) (
-    input  logic clk,
-    input  logic reset,
-    input  logic rx,
-    output logic [7:0] data,
-    output logic [7:0] x,
-    output logic [7:0] y
+    input  logic clk,         // 10 MHz clock
+    input  logic reset,       // Active high reset
+    input  logic rx,          // UART recieve line
+    
+    output logic [7:0] data,  // RX command recieved
+    output logic [7:0] x,     // Desired x-coordinate
+    output logic [7:0] y      // Desired y-coordinate
 ); 
 
     logic [7:0] data_in;
@@ -24,15 +26,7 @@ module keyboardControl #(parameter X_MAX=4, Y_MAX=4) (
     //  - Parallelize     
     receiver r ( .clk(clk), .reset(reset), .rx(rx), .data(data_in) );
     
-    // Clock divider to lower sample rate of the keyboard
-    clk_divider c (
-        .clk(clk),
-        .reset(reset),
-        .divisor('b10000),
-        .slow_clk(slow_clk)
-    );
-    
-    // Fifo Queue to store the keyboard value and go between clock domains
+    // Fifo Queue to store the keyboard value
     logic fifoEmpty;
     logic fifoFull;
     syncFIFO #( 2, 8 ) s (

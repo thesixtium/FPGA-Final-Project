@@ -1,11 +1,12 @@
 // File info:
 // - Original file
+// - Enables the servo PWM for a short length of time on data change
 
 module pwm_enable#(parameter N=8, CLK_CYCLES=10)(
-    input logic [N-1:0] data,
-    input logic clk,
-    input logic reset,
-    output logic en
+    input logic [N-1:0] data,  // Input data
+    input logic clk,           // 10 MHz clock
+    input logic reset,         // Active high reset
+    output logic en            // Servo enable
 );
     logic [N-1:0] old_data;
     logic data_different;

@@ -1,15 +1,15 @@
 // File info:
 // - Python generated!
 // - Python script is my own script
-// - Lookup based on x and y values
+// - Lookup servo angles based on desired x- and y-coordinates
 
 module inverse_kinematics (
-    input  logic clk,
-    input  logic reset,
-    input  logic [7:0]  x,
-    input  logic [7:0]  y,
-    output logic [23:0] shoulder_angle,
-    output logic [23:0] elbow_angle
+    input  logic clk,                    // 10 MHz clock
+    input  logic reset,                  // Active high reset
+    input  logic [7:0]  x,               // Desired x-coordinate
+    input  logic [7:0]  y,               // Desired y-coordinate
+    output logic [23:0] shoulder_angle,  // Output shoulder angle (Calibrated value, not degrees or radians)
+    output logic [23:0] elbow_angle      // Output elbow angle (Calibrated value, not degrees or radians)
 );
 
 always @(posedge clk) begin

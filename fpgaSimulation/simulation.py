@@ -64,7 +64,7 @@ def plot_arm(l1, l2, x, y):
 while ( True ):
     s = serial.Serial('COM4')
     try:
-        keyboard = False
+        keyboard = True
 
         x, y = serial_to_x_y(s)
         if keyboard:

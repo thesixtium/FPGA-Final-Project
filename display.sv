@@ -1,15 +1,17 @@
 // File info:
 // - Based on parts of given SystemVerilog from labs
 // - Combined files together
+// - Displays FSM state and desired x- and y-coordinates
 
 module display (
-    input  logic        clk,
-    input  logic        reset,
-    input  logic [1:0]  state,
+    input  logic       clk,    // 10 MHz clock
+    input  logic       reset,  // Active high reset
+    input  logic [1:0] state,  // FSM state
     
-    input  logic [3:0]  x,
-    input  logic [3:0]  y,
+    input  logic [3:0] x,  // Desired x-coordinate
+    input  logic [3:0] y,  // Desired y-coordinate
     
+    // Display cathodes
     output logic       CA,
     output logic       CB,
     output logic       CC,
@@ -19,6 +21,7 @@ module display (
     output logic       CG,
     output logic       DP,
     
+    // Display anodes
     output logic        AN1, AN2, AN3, AN4
 );
 

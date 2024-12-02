@@ -3,15 +3,15 @@
 //  - Decides states of the FSM
 
 module fsm (
-    input logic clk,
-    input logic reset,
+    input logic clk,    // 10 MHz clock
+    input logic reset,  // Active high reset
     
-    input logic right,
-    input logic left,
+    input logic right,  // Switch on the right side of the board
+    input logic left,   // Switch on the left side of the board
     
-    output logic [1:0] state,
-    output logic keyboardControlled,
-    output logic ultrasonicControlled
+    output logic [1:0] state,          // FSM state
+    output logic keyboardControlled,   // If the arm is keyboard controlled
+    output logic ultrasonicControlled  // If the arm is ultrasonic controlled
 );
     // Possible states:
     // 00: Selection of ultrasonic or keyboard (default)

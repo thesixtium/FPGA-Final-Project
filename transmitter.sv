@@ -1,13 +1,14 @@
 // File info:
 // - Verilog copied from: https://www.instructables.com/UART-Communication-on-Basys-3-FPGA-Dev-Board-Power/
 // - Comments added to show understanding
+// - Transmits one packet worth of data over UART transmit line
 
 module transmitter(
-    input clk,
-    input reset,
-    input transmit,
-    input [7:0] data,
-    output reg TxD
+    input clk,         // 10 MHz clock
+    input reset,       // Active high reset
+    input transmit,    // Whether or not to transmit
+    input [7:0] data,  // Data to transmit
+    output reg TxD     // UART transmit line
 );
     
     reg [3:0] bitcounter;
