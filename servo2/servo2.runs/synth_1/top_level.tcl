@@ -56,13 +56,6 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 5
-set_param checkpoint.writeSynthRtdsInDcp 1
-set_param synth.incrementalSynthesisCache C:/Users/ajrbe/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-36936-hiccup/incrSyn
-set_param xicom.use_bs_reader 1
-set_msg_config -id {Common 17-41} -limit 10000000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcpg236-1
 
@@ -93,7 +86,6 @@ read_verilog -library xil_defaultlib -sv {
   {C:/Users/ajrbe/Documents/School/ENEL 453/servo2/fsm_controller.sv}
   {C:/Users/ajrbe/Documents/School/ENEL 453/servo2/transmitter.sv}
   {C:/Users/ajrbe/Documents/School/ENEL 453/servo2/display.sv}
-  {C:/Users/ajrbe/Documents/School/ENEL 453/servo2/clk_pulse.sv}
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

@@ -1,0 +1,23 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/servo2/servo2.sim/sim_1/synth/func/xsim/pwm_measure_tb_func_synth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module averager
+INFO: [VRFC 10-311] analyzing module divider
+INFO: [VRFC 10-311] analyzing module pwm_measure
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/clk_divider_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_divider_tb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/pwm_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pwm_tb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/pwm_enable_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pwm_enable_tb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/syncFIFO_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module syncFIFO_tb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/pwm_measure_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pwm_measure_tb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/divider_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module divider_tb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/clk_pulse_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_pulse_tb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/fsm_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fsm_tb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/inverse_kinematics_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module inverse_kinematics_tb

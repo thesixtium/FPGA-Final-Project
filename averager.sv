@@ -5,7 +5,7 @@
 module averager 
     #(parameter int
         power = 8, // 2**N samples, default is 2**8 = 256 samples
-        N = 12)    // # of bits to take the average of
+        N = 32)    // # of bits to take the average of
     (
     input logic clk,    // 10 MHz clock
     input logic reset,  // Active high reset

@@ -1,0 +1,17 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"pwm_measure_tb_func_synth.v" \
+
+sv xil_defaultlib  \
+"../../../../../../clk_divider_tb.sv" \
+"../../../../../../pwm_tb.sv" \
+"../../../../../../pwm_enable_tb.sv" \
+"../../../../../../syncFIFO_tb.sv" \
+"../../../../../../pwm_measure_tb.sv" \
+"../../../../../../divider_tb.sv" \
+"../../../../../../clk_pulse_tb.sv" \
+"../../../../../../fsm_tb.sv" \
+"../../../../../../inverse_kinematics_tb.sv" \
+
+# Do not sort compile order
+nosort

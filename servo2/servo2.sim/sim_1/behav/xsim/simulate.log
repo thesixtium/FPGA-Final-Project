@@ -1,3 +1,2 @@
 Time resolution is 1 ps
-$stop called at time : 500002 us : File "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/pwm_measure_tb.sv" Line 97
-INFO: xsimkernel Simulation Memory Usage: 17128 KB (Peak: 17128 KB), Simulation CPU Usage: 16984 ms
+$stop called at time : 300002 us : File "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/pwm_measure_tb.sv" Line 67

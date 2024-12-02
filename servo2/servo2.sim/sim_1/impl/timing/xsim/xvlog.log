@@ -1,0 +1,37 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/servo2/servo2.sim/sim_1/impl/timing/xsim/pwm_measure_tb_time_impl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RAM32M_UNIQ_BASE_
+INFO: [VRFC 10-311] analyzing module RAM32X1D_UNIQ_BASE_
+INFO: [VRFC 10-311] analyzing module RAM32X1D_HD1
+INFO: [VRFC 10-311] analyzing module averager
+INFO: [VRFC 10-311] analyzing module clk_divider
+INFO: [VRFC 10-311] analyzing module display
+INFO: [VRFC 10-311] analyzing module divider
+INFO: [VRFC 10-311] analyzing module fsm
+INFO: [VRFC 10-311] analyzing module fsm_controller
+INFO: [VRFC 10-311] analyzing module inverse_kinematics
+INFO: [VRFC 10-311] analyzing module keyboardControl
+INFO: [VRFC 10-311] analyzing module pwm
+INFO: [VRFC 10-311] analyzing module pwm__1
+INFO: [VRFC 10-311] analyzing module pwm_enable
+INFO: [VRFC 10-311] analyzing module pwm_measure
+INFO: [VRFC 10-311] analyzing module receiver
+INFO: [VRFC 10-311] analyzing module syncFIFO
+INFO: [VRFC 10-311] analyzing module top_level
+INFO: [VRFC 10-311] analyzing module transmitter
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/clk_divider_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_divider_tb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/pwm_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pwm_tb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/pwm_enable_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pwm_enable_tb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/syncFIFO_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module syncFIFO_tb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/pwm_measure_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pwm_measure_tb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/divider_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module divider_tb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/fsm_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fsm_tb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ajrbe/Documents/School/ENEL 453/servo2/inverse_kinematics_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module inverse_kinematics_tb

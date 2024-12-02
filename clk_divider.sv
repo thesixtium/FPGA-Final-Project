@@ -1,6 +1,6 @@
 // File info:
 // - Original file
-// - Provuces a clock frequency that is the input frequency / divisor
+// - Produces a clock frequency that is the input frequency / divisor
 
 module clk_divider (
     input  logic clk,             // Input clock

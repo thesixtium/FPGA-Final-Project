@@ -2,7 +2,7 @@
 // - Original
 // - Converts the ultrasonic PWM into a distance int
 
-module pwm_measure #(parameter DIVISION_AMOUNT=1764, SMOOTHING=13)(
+module pwm_measure #(parameter int DIVISION_AMOUNT=1664)(
     input logic clk,     // 10 MHz clock
     input logic reset,   // Active high reset
     input logic pwm_in,  // Ultrasonic PWM input
@@ -30,13 +30,16 @@ module pwm_measure #(parameter DIVISION_AMOUNT=1764, SMOOTHING=13)(
     //     both in FPGA's and using the same ultrasonic sensor with the
     //     same constants and same communication method with an Arduino
     //     for capstone. Thus, I needed to use an averager to smooth it out.
-    averager #(SMOOTHING, 32) a (
+    logic [31:0] averaged_distance;
+    averager a (
          .clk(clk),
          .reset(reset),
          .EN(1),
          .Din(divided_distance),
-         .Q(distance)
+         .Q(averaged_distance)
     );
+    
+    assign distance = averaged_distance + 1;
     
     // Store old value so can detect changes in the signal
     always_ff @(posedge clk) begin

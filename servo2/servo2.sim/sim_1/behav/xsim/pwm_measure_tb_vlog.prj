@@ -15,7 +15,6 @@ sv xil_defaultlib  \
 "../../../../../fsm_controller.sv" \
 "../../../../../transmitter.sv" \
 "../../../../../display.sv" \
-"../../../../../clk_pulse.sv" \
 "../../../../../clk_divider_tb.sv" \
 "../../../../../pwm_tb.sv" \
 "../../../../../pwm_enable_tb.sv" \
