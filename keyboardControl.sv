@@ -12,6 +12,12 @@ module keyboardControl #(parameter X_MAX=4, Y_MAX=4) (
 
     logic [7:0] data_in;
     logic [7:0] data_old;
+    logic [7:0] internal_x;
+    logic [7:0] internal_y;
+    
+    // Ensure output (x,y) range is [1,4] instead of [0,3]
+    assign x = internal_x + 1;
+    assign y = internal_y + 1;
     
     // Translate UART RX into 8 bits:
     //  - Remove start bit, parity, stop bits
@@ -56,24 +62,24 @@ module keyboardControl #(parameter X_MAX=4, Y_MAX=4) (
     // - d: x--
     always @(posedge clk) begin
         if (reset) begin
-            x <= 2;
-            y <= 4;
+            internal_x <= 2;
+            internal_y <= 3;
         end else if ( data_old ^ data ) begin
             case(data)
                 8'b0111_0111 :  begin  // W
-                    y <= ( (y + 1) % Y_MAX ) + 1;
+                    internal_y <= ( (internal_y + 1) % Y_MAX );
                 end
                 
                 8'b0110_0001 :  begin  // A
-                    x <= ( (x + 1) % X_MAX ) + 1;
+                    internal_x <= ( (internal_x + 1) % X_MAX );
                 end
                 
                 8'b0111_0011 :  begin  // S
-                    y <= ( (y + 1) % Y_MAX ) + 1;
+                    internal_y <= ( (internal_y - 1) % Y_MAX );
                 end
                 
                 8'b0110_0100 :  begin  // D
-                    x <= ( (x - 1) % X_MAX ) + 1;
+                    internal_x <= ( (internal_x - 1) % X_MAX );
                 end
             endcase
         end

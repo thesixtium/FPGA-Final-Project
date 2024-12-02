@@ -1,10 +1,8 @@
 import math
 import time
-from math import sqrt, pi, acos, cos, tan, atan2, sin
+from math import pi, acos, atan2
 
 import serial
-import PyQt6
-import PyQt5
 import matplotlib.pyplot as plt
 import matplotlib
 
@@ -15,7 +13,6 @@ def send_command(s):
 
 def serial_to_x_y(s):
     res = s.read()
-    print(res, end="\t")
     binary = format(ord(res.decode()), "08b")
 
     x, y = int(binary[:4], 2), int(binary[4:], 2)
@@ -55,13 +52,11 @@ def plot_arm(l1, l2, x, y):
 
 
         plt.ion()
-        # plt.clf()
+        plt.clf()
         plt.plot(plot_x, plot_y)
         plt.scatter(x, y)
-        # plt.axis((0, l1+l2, 0, l1+l2))
-        # plt.pause(0.5)
+        plt.axis((-(l1+l2) * 0.5, l1+l2, 0, l1+l2))
         mngr = plt.get_current_fig_manager()
-        # to put it into the upper left corner for example:
         mngr.window.setGeometry(800, 100, 500, 500)
         plt.draw()
         plt.pause(1)
@@ -71,14 +66,13 @@ while ( True ):
     try:
         keyboard = False
 
+        x, y = serial_to_x_y(s)
         if keyboard:
             send_command(s)
         else:
             time.sleep(0.25)
-        x, y = serial_to_x_y(s)
         plot_arm(3, 3, x, y)
     except Exception as e:
-        # print(e.args)
         continue
     finally:
         s.close()
