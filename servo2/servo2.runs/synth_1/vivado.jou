@@ -3,8 +3,8 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Mon Dec  2 14:21:26 2024
-# Process ID: 26972
+# Start of session at: Mon Dec  2 15:07:06 2024
+# Process ID: 35688
 # Current directory: C:/Users/ajrbe/Documents/School/ENEL 453/servo2/servo2/servo2.runs/synth_1
 # Command line: vivado.exe -log top_level.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_level.tcl
 # Log file: C:/Users/ajrbe/Documents/School/ENEL 453/servo2/servo2/servo2.runs/synth_1/top_level.vds
@@ -19,6 +19,6 @@
 # Host memory       :33947 MB
 # Swap memory       :8237 MB
 # Total Virtual     :42185 MB
-# Available Virtual :12163 MB
+# Available Virtual :12249 MB
 #-----------------------------------------------------------
 source top_level.tcl -notrace
