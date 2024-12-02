@@ -1,6 +1,7 @@
 module fsm_controller (
     input logic clk,
     input logic reset,
+    input logic [1:0] state,
     
     input logic keyboardControlled,
     input logic [7:0] keyboard_x,
@@ -32,13 +33,14 @@ module fsm_controller (
     output logic AN3,
     output logic AN4
 );
+
     logic pwm_en;
     logic [7:0] inverse_kinematics_x;
     logic [7:0] inverse_kinematics_y;
     
     // Clock divider for the dancing lights
     logic slow_clk;
-    clk_divider (
+    clk_divider cd (
         .clk(clk),
         .reset(reset),
         .divisor('d100000000),
@@ -64,7 +66,7 @@ module fsm_controller (
                 led[7:0] <= data;
                 
             end else if ( ultrasonicControlled ) begin
-                inverse_kinematics_x <= ultrasonic_x[7:3];
+                inverse_kinematics_x <= ultrasonic_x[7:0];
                 inverse_kinematics_y <= ultrasonic_y;
                 
                 // Change LEDs if in ultrasonic mode
@@ -113,7 +115,7 @@ module fsm_controller (
     pwm elbowPWM    (clk, pwm_en | ultrasonicControlled, elbow_angle, elbow_servo);
     
     // Always transmit data back to my laptop for the simulation
-    transmitter (
+    transmitter t (
         .clk(clk),
         .reset(reset), 
         .transmit(1), 
@@ -122,7 +124,7 @@ module fsm_controller (
     );
     
     // Display to the seven segment display
-    display (
+    display d (
         .clk(clk),
         .reset(reset),
         .state(state),

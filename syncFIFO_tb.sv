@@ -1,3 +1,6 @@
+// File info: 
+// - Verilog taken from https://www.chipverify.com/verilog/synchronous-fifo
+
 `timescale 1ns / 1ps
 
 module syncFIFO_tb();
@@ -14,12 +17,12 @@ module syncFIFO_tb();
     logic r_en;
     logic w_en;
     logic full;
-    logic rstn;
+    logic reset;
     logic stop;
 
     // Instantiate the Unit Under Test (UUT)
     syncFIFO uut (
-        .rstn(rstn),
+        .reset(reset),
         .w_en(w_en),
         .r_en(r_en),
         .w_clk(w_clk),
@@ -35,12 +38,12 @@ module syncFIFO_tb();
 
     initial begin
         w_clk <= 0;
-        rstn <= 0;
+        reset <= 1;
         w_en <= 0;
         r_en <= 0;
         stop <= 0;
         
-        #(CLK_PERIOD * 5) rstn <= 1;
+        #(CLK_PERIOD * 5) reset <= 0;
     end
     
     // Write data into FIFO

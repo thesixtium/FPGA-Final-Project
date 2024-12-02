@@ -1,15 +1,19 @@
 Vivado Simulator v2024.1
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot clk_pulse_tb_behav xil_defaultlib.clk_pulse_tb xil_defaultlib.glbl -log elaborate.log 
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot pwm_measure_tb_behav xil_defaultlib.pwm_measure_tb xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 64 differs from formal bit length 32 for port 'divisor' [C:/Users/ajrbe/Documents/School/ENEL 453/servo2/pwm_measure.sv:21]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 32 for port 'a' [C:/Users/ajrbe/Documents/School/ENEL 453/servo2/pwm_measure.sv:46]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
 Compiling module xil_defaultlib.clk_pulse
-Compiling module xil_defaultlib.clk_pulse_tb
+Compiling module xil_defaultlib.divider
+Compiling module xil_defaultlib.pwm_measure(DIVISION_AMOUNT=2)
+Compiling module xil_defaultlib.pwm_measure_tb
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot clk_pulse_tb_behav
+Built simulation snapshot pwm_measure_tb_behav

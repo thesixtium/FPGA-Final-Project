@@ -8,10 +8,10 @@ module divider_tb();
     // Signals
     logic clk = 0;
     logic reset = 0;
-    logic [15:0] number = 9;
-    logic [15:0] divisor = 1;
-    logic [15:0] quotient = 0;
-    logic [15:0] remainder = 0;
+    logic [31:0] number = 0;
+    logic [31:0] divisor = 0;
+    logic [31:0] quotient = 0;
+    logic [31:0] remainder = 0;
 
     // Instantiate the Unit Under Test (UUT)
     divider uut (
@@ -29,6 +29,10 @@ module divider_tb();
     initial begin
         #(100 * CLK_PERIOD);
         
+        number = 9;
+        divisor = 1;
+        #(50 * CLK_PERIOD);
+        
         number = 6;
         divisor = 2;
         #(50 * CLK_PERIOD);
@@ -37,11 +41,9 @@ module divider_tb();
         divisor = 5;
         #(50 * CLK_PERIOD);
         
-        // data = 2;
-        // #(20 * CLK_PERIOD);
-        
-        // data = 1;
-        // #(20 * CLK_PERIOD);
+        number = 60_001;
+        divisor = 2;
+        #(60000 * CLK_PERIOD);
         $stop;
     end
 

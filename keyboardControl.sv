@@ -16,10 +16,10 @@ module keyboardControl #(parameter X_MAX=4, Y_MAX=4) (
     // Translate UART RX into 8 bits:
     //  - Remove start bit, parity, stop bits
     //  - Parallelize     
-    receiver ( .clk(clk), .reset(reset), .rx(rx), .data(data_in) );
+    receiver r ( .clk(clk), .reset(reset), .rx(rx), .data(data_in) );
     
     // Clock divider to lower sample rate of the keyboard
-    clk_divider (
+    clk_divider c (
         .clk(clk),
         .reset(reset),
         .divisor('b10000),
@@ -29,7 +29,7 @@ module keyboardControl #(parameter X_MAX=4, Y_MAX=4) (
     // Fifo Queue to store the keyboard value and go between clock domains
     logic fifoEmpty;
     logic fifoFull;
-    syncFIFO #( 2, 8 ) (
+    syncFIFO #( 2, 8 ) s (
         .reset(reset),
         .w_clk(clk),
         .r_clk(clk),

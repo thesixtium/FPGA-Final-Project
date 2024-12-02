@@ -94,6 +94,7 @@ module top_level(
     fsm_controller fsmc (
         .clk(clk),
         .reset(reset),
+        .state(state),
         
         // Keyboard Controlled Information
         .keyboardControlled(keyboardControlled),

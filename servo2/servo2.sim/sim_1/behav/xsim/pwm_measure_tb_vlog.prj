@@ -20,10 +20,11 @@ sv xil_defaultlib  \
 "../../../../../pwm_tb.sv" \
 "../../../../../pwm_enable_tb.sv" \
 "../../../../../syncFIFO_tb.sv" \
-"../../../../../div_gen_0_tb.sv" \
 "../../../../../pwm_measure_tb.sv" \
 "../../../../../divider_tb.sv" \
 "../../../../../clk_pulse_tb.sv" \
+"../../../../../fsm_tb.sv" \
+"../../../../../inverse_kinematics_tb.sv" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"

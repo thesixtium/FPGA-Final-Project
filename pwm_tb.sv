@@ -8,30 +8,25 @@ module pwm_tb();
     // Signals
     logic clk = 0;
     logic signal = 0;
-    logic [7:0] angle = 0;
+    logic en = 0;
+    logic [23:0] angle = 0;
 
     // Instantiate the Unit Under Test (UUT)
-    pwm uut ( .clk(clk), .angle(angle), .servo(signal));
+    pwm uut ( .clk(clk), .en(en), .angle(angle), .servo(signal));
     
     always #(CLK_PERIOD / 2) clk = ~clk;
 
     // Test stimulus
     initial begin
-        // End simulation
-        angle = 0;
-        #(2000000 * CLK_PERIOD);
+        en = 0;
+        #(100 * CLK_PERIOD);
+        en = 1;
         
-        angle = 45;
-        #(2000000 * CLK_PERIOD);
+        angle = 50_000;
+        #(400_000 * CLK_PERIOD);
         
-        angle = 90;
-        #(2000000 * CLK_PERIOD);
-        
-        angle = 135;
-        #(2000000 * CLK_PERIOD);
-        
-        angle = 180;
-        #(2000000 * CLK_PERIOD);
+        angle = 100_000;
+        #(400_000 * CLK_PERIOD);
         $stop;
     end
 

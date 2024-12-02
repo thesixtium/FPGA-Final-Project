@@ -67,18 +67,21 @@ def plot_arm(l1, l2, x, y):
         plt.pause(1)
 
 while ( True ):
+    s = serial.Serial('COM4')
     try:
-        s = serial.Serial('COM4')
-        keyboard = True
+        keyboard = False
 
         if keyboard:
             send_command(s)
         else:
-            time.sleep(1)
+            time.sleep(0.25)
         x, y = serial_to_x_y(s)
         plot_arm(3, 3, x, y)
     except Exception as e:
+        # print(e.args)
         continue
+    finally:
+        s.close()
 
 
 

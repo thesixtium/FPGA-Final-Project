@@ -7,10 +7,10 @@
 module divider (
     input  logic        clk,
     input  logic        reset,
-    input  logic [15:0] x,     // Dividend
-    input  logic [15:0] y,     // Divisor
-    output logic [15:0] a,     // Quotient
-    output logic [15:0] b      // Remainder
+    input  logic [31:0] x,     // Dividend
+    input  logic [31:0] y,     // Divisor
+    output logic [31:0] a,     // Quotient
+    output logic [31:0] b      // Remainder
 );
 
     logic [1:0] state;
@@ -18,8 +18,8 @@ module divider (
     // 01: Loading
     // 10: Dividing
     
-    logic [15:0] dividend;
-    logic [15:0] divide_counts;
+    logic [31:0] dividend;
+    logic [31:0] divide_counts;
 
     always @(posedge clk) begin
     

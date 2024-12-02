@@ -1,37 +1,57 @@
 `timescale 1ns / 1ps
 
-module pwm_tb();
+module inverse_kinematics_tb();
 
     // Parameters
     parameter CLK_PERIOD = 10; // 10ns for 100MHz clock
 
     // Signals
     logic clk = 0;
-    logic signal = 0;
-    logic [7:0] angle = 0;
+    logic reset = 0;
+    logic [7:0]  x = 1;
+    logic [7:0]  y = 1;
+    logic [23:0] shoulder_angle = 0;
+    logic [23:0] elbow_angle = 0;
 
     // Instantiate the Unit Under Test (UUT)
-    pwm uut ( .clk(clk), .angle(angle), .servo(signal));
+    inverse_kinematics uut (
+        clk,
+        reset,
+        x,
+        y,
+        shoulder_angle,
+        elbow_angle
+    );
     
     always #(CLK_PERIOD / 2) clk = ~clk;
 
     // Test stimulus
     initial begin
         // End simulation
-        angle = 0;
-        #(2000000 * CLK_PERIOD);
+        reset = 1;
+        #(10 * CLK_PERIOD);
+        reset = 0;
         
-        angle = 45;
-        #(2000000 * CLK_PERIOD);
+        x = 1;
+        y = 2;
+        #(10 * CLK_PERIOD);
         
-        angle = 90;
-        #(2000000 * CLK_PERIOD);
+        x = 1;
+        y = 2;
+        #(10 * CLK_PERIOD);
         
-        angle = 135;
-        #(2000000 * CLK_PERIOD);
+        x = 2;
+        y = 3;
+        #(10 * CLK_PERIOD);
         
-        angle = 180;
-        #(2000000 * CLK_PERIOD);
+        x = 4;
+        y = 4;
+        #(10 * CLK_PERIOD);
+        
+        x = 4;
+        y = 2;
+        #(10 * CLK_PERIOD);
+        
         $stop;
     end
 
