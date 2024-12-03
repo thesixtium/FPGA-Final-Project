@@ -16,6 +16,9 @@ module fsm_controller (
     input logic [7:0] ultrasonic_x,    // Desired arm x-coordinate if ultrasonic controlled
     input logic [7:0] ultrasonic_y,    // Desired arm y-coordinate if ultrasonic controlled
     
+    input logic [7:0] xadc_x,  // Desired arm x-coordinate if xadc controlled
+    input logic [7:0] xadc_y,  // Desired arm y-coordinate if xadc controlled
+    
     output logic [15:0] led,      // LEDs
     output logic shoulder_servo,  // PWM for the shoulder servo
     output logic elbow_servo,     // PWM for the elbow servo
@@ -38,7 +41,8 @@ module fsm_controller (
     output logic AN4
 );
 
-    logic pwm_en;
+    logic pwm_en_x;
+    logic pwm_en_y;
     logic [7:0] inverse_kinematics_x;
     logic [7:0] inverse_kinematics_y;
     
@@ -64,7 +68,7 @@ module fsm_controller (
                 inverse_kinematics_y <= keyboard_y;
             
                 // Change LEDs if in keyboard mode
-                led[15] <= pwm_en;
+                led[15] <= pwm_en_x | pwm_en_y;
                 led[14:12] <= inverse_kinematics_x[2:0];
                 led[11:9] <= inverse_kinematics_y[2:0];
                 led[7:0] <= data;
@@ -74,8 +78,16 @@ module fsm_controller (
                 inverse_kinematics_y <= ultrasonic_y;
                 
                 // Change LEDs if in ultrasonic mode
+                led[15] <= 0;
                 led[14] <= 1;
+                led[13:8] <= 0;
                 led[7:0] <= ultrasonic_x[7:0];
+            end else if ( state == 2'b11) begin
+                inverse_kinematics_x <= xadc_x;
+                inverse_kinematics_y <= xadc_y;
+                
+                led[15:8] <= 0;
+                led[7:0] <= xadc_x;
             end else begin
                 // Show a distinct bit pattern for default state
                 // - Helped worlds for debugging
@@ -94,11 +106,17 @@ module fsm_controller (
     //     time they were assigned a different value, and only enabling
     //     the servos for a short time after the change. Else, rely on
     //     the internal friction of the servo to keep it in place
-    pwm_enable #(24, 200000 * 700) pwme (
-        .data(data),
+    pwm_enable #(24, 200000 * 700) pwmex (
+        .data(inverse_kinematics_x),
         .clk(clk),
         .reset(reset),
-        .en(pwm_en)
+        .en(pwm_en_x)
+    );
+    pwm_enable #(24, 200000 * 700) pwmey (
+        .data(inverse_kinematics_y),
+        .clk(clk),
+        .reset(reset),
+        .en(pwm_en_y)
     );
 
     // Figure out the needed angle for the servos based on requested
@@ -114,9 +132,9 @@ module fsm_controller (
         .elbow_angle(elbow_angle)
     );
    
-    // PWMs for the output servos, always enable when ultrasonic controlled
-    pwm shoulderPWM (clk, pwm_en | ultrasonicControlled, shoulder_angle, shoulder_servo);
-    pwm elbowPWM    (clk, pwm_en | ultrasonicControlled, elbow_angle, elbow_servo);
+    // PWMs for the output servos
+    pwm shoulderPWM (clk, pwm_en_x | pwm_en_y, shoulder_angle, shoulder_servo);
+    pwm elbowPWM    (clk, pwm_en_x | pwm_en_y, elbow_angle, elbow_servo);
     
     // Always transmit data back to my laptop for the simulation
     transmitter t (

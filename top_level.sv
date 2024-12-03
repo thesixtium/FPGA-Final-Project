@@ -33,7 +33,11 @@ module top_level(
     output logic AN1,
     output logic AN2,
     output logic AN3,
-    output logic AN4
+    output logic AN4,
+    
+    // XADC
+    input logic vauxp15,
+    input logic vauxn15
     );
     
     // State of the FSM
@@ -89,6 +93,18 @@ module top_level(
         .y(keyboard_y)
     );
     
+    // Gives the digital equivilant of the XADC's analog value
+    logic [7:0] xadc_x;
+    logic [7:0] xadc_y = 3;
+    analog a (
+        .clk(clk),
+        .reset(reset),
+        .vauxp15(vauxp15),
+        .vauxn15(vauxn15),
+        
+        .xadc_x(xadc_x)
+    );
+    
     // Wrapper to do all the finite state machine controll as the FSM
     //     above only decides the state, it doesn't do much with it
     fsm_controller fsmc (
@@ -106,6 +122,10 @@ module top_level(
         .ultrasonicControlled(ultrasonicControlled),
         .ultrasonic_x(ultrasonic_x),
         .ultrasonic_y(ultrasonic_y),
+        
+        // XADC Controlled Information
+        .xadc_x(xadc_x),
+        .xadc_y(xadc_y),
         
         // Outputs
         .led(led),

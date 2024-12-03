@@ -56,13 +56,16 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param tcl.statsThreshold 360
 set_param chipscope.maxJobs 5
+set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
+set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir {C:/Users/ajrbe/Documents/School/ENEL 453/servo2/servo2/servo2.cache/wt} [current_project]
 set_property parent.project_path {C:/Users/ajrbe/Documents/School/ENEL 453/servo2/servo2/servo2.xpr} [current_project]
 set_property default_lib xil_defaultlib [current_project]
@@ -87,7 +90,12 @@ read_verilog -library xil_defaultlib -sv {
   {C:/Users/ajrbe/Documents/School/ENEL 453/servo2/fsm_controller.sv}
   {C:/Users/ajrbe/Documents/School/ENEL 453/servo2/transmitter.sv}
   {C:/Users/ajrbe/Documents/School/ENEL 453/servo2/display.sv}
+  {C:/Users/ajrbe/Documents/School/ENEL 453/servo2/analog.sv}
 }
+read_ip -quiet {{c:/Users/ajrbe/Documents/School/ENEL 453/servo2/servo2/servo2.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xci}}
+set_property used_in_implementation false [get_files -all {{c:/Users/ajrbe/Documents/School/ENEL 453/servo2/servo2/servo2.gen/sources_1/ip/xadc_wiz_0/xadc_wiz_0_ooc.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/Users/ajrbe/Documents/School/ENEL 453/servo2/servo2/servo2.gen/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xdc}}]
+
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

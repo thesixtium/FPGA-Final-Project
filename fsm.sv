@@ -17,6 +17,7 @@ module fsm (
     // 00: Selection of ultrasonic or keyboard (default)
     // 01: Ultrasonic
     // 10: Keyboard
+    // 11: Analog
 
     always @(posedge clk) begin
         if ( reset ) begin
@@ -25,9 +26,9 @@ module fsm (
             case(state)
             
                 default : begin
-                    if ( right ) begin
+                    if ( right && ~left ) begin
                         state <= 2'b01;
-                    end else if ( left ) begin
+                    end else if ( left && ~right ) begin
                         state <= 2'b10;
                     end
                 end
@@ -37,6 +38,8 @@ module fsm (
                         state <= 2'b10;
                     end else if (~left && ~right ) begin
                         state <= 2'b00;
+                    end else if (left && right ) begin
+                        state <= 2'b11;
                     end
                 end
                 
@@ -45,6 +48,18 @@ module fsm (
                         state <= 2'b01;
                     end else if (~left && ~right ) begin
                         state <= 2'b00;
+                    end else if (left && right ) begin
+                        state <= 2'b11;
+                    end
+                end
+                
+                2'b11 : begin
+                    if ( right && ~left ) begin
+                        state <= 2'b01;
+                    end else if (~left && ~right ) begin
+                        state <= 2'b00;
+                    end else if (left && ~right ) begin
+                        state <= 2'b10;
                     end
                 end
             

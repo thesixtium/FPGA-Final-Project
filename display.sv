@@ -62,6 +62,7 @@ module display (
                 // 00: Selection of ultrasonic or keyboard (default)
                 // 01: Ultrasonic
                 // 10: Keyboard
+                // 11: Analog
             
                 default : begin
                     digit1 <= 7'b000_0001;
@@ -76,6 +77,11 @@ module display (
                 2'b10 : begin
                     digit1 <= 7'b001_1111;
                     digit2 <= 7'b011_1101;
+                end
+                
+                2'b11 : begin
+                    digit1 <= 7'b001_0101;
+                    digit2 <= 7'b001_1101;
                 end
             
             endcase
