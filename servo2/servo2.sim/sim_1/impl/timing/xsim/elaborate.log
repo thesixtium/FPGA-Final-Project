@@ -5,10 +5,10 @@ Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3755] too many parameters for module instance 'uut' [C:/Users/ajrbe/Documents/School/ENEL 453/servo2/pwm_measure_tb.sv:18]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
+WARNING: [XSIM 43-3918] Unable to determine HDL language type of design hierarchy in SDF. Returning without back annotation.
 Time Resolution for simulation is 1ps
 Compiling module simprims_ver.x_lut3_mux8
 Compiling module simprims_ver.LUT3
@@ -20,9 +20,12 @@ Compiling module simprims_ver.FDRE_default
 Compiling module simprims_ver.CARRY4
 Compiling module simprims_ver.SRL16E_default
 Compiling module xil_defaultlib.averager
+Compiling module simprims_ver.BUFG
+Compiling module simprims_ver.IBUF
 Compiling module simprims_ver.x_lut1_mux2
 Compiling module simprims_ver.LUT1
 Compiling module xil_defaultlib.divider
+Compiling module simprims_ver.OBUF
 Compiling module simprims_ver.LUT5(INIT=32'b011111111111111110...
 Compiling module xil_defaultlib.pwm_measure
 Compiling module xil_defaultlib.pwm_measure_tb

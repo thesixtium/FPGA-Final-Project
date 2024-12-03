@@ -2,7 +2,7 @@
 // - Original
 // - Converts the ultrasonic PWM into a distance int
 
-module pwm_measure #(parameter int DIVISION_AMOUNT=1664)(
+module pwm_measure #(parameter int DIVISION_AMOUNT=2218)(
     input logic clk,     // 10 MHz clock
     input logic reset,   // Active high reset
     input logic pwm_in,  // Ultrasonic PWM input

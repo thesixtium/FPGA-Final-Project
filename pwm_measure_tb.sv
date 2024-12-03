@@ -15,7 +15,7 @@ module pwm_measure_tb();
     logic pwm_in = 0;
 
     // Instantiate the Unit Under Test (UUT)
-    pwm_measure #(1664) uut  ( clk, reset, pwm_in, distance );
+    pwm_measure uut  ( clk, reset, pwm_in, distance );
     
     always #(CLK_PERIOD / 2) clk = ~clk;
 
@@ -29,12 +29,6 @@ module pwm_measure_tb();
         #(10 * CLK_PERIOD);
         
 		pwm_in = 1;
-		target = 4;
-        #(147_000 * target);
-		pwm_in = 0;
-        #(SERVO_PERIOD - (147_000 * target));
-        
-		pwm_in = 1;
 		target = 1;
         #(147_000 * target);
 		pwm_in = 0;
@@ -46,14 +40,8 @@ module pwm_measure_tb();
 		pwm_in = 0;
         #(SERVO_PERIOD - (147_000 * target));
         
-        pwm_in = 1;
-        target = 4;
-        #(147_000 * target);
-		pwm_in = 0;
-        #(SERVO_PERIOD - (147_000 * target));
-        
-        pwm_in = 1;
-        target = 3;
+		pwm_in = 1;
+		target = 3;
         #(147_000 * target);
 		pwm_in = 0;
         #(SERVO_PERIOD - (147_000 * target));
