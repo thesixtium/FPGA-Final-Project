@@ -56,9 +56,11 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param tcl.statsThreshold 360
-set_param chipscope.maxJobs 5
+set_param checkpoint.writeSynthRtdsInDcp 1
+set_param synth.incrementalSynthesisCache C:/Users/ajrbe/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-30568-hiccup/incrSyn
 set_param xicom.use_bs_reader 1
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcpg236-1
 
@@ -92,7 +94,7 @@ read_verilog -library xil_defaultlib -sv {
   {C:/Users/ajrbe/Documents/School/ENEL 453/servo2/display.sv}
   {C:/Users/ajrbe/Documents/School/ENEL 453/servo2/analog.sv}
 }
-read_ip -quiet {{c:/Users/ajrbe/Documents/School/ENEL 453/servo2/servo2/servo2.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xci}}
+read_ip -quiet {{C:/Users/ajrbe/Documents/School/ENEL 453/servo2/servo2/servo2.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xci}}
 set_property used_in_implementation false [get_files -all {{c:/Users/ajrbe/Documents/School/ENEL 453/servo2/servo2/servo2.gen/sources_1/ip/xadc_wiz_0/xadc_wiz_0_ooc.xdc}}]
 set_property used_in_implementation false [get_files -all {{c:/Users/ajrbe/Documents/School/ENEL 453/servo2/servo2/servo2.gen/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xdc}}]
 

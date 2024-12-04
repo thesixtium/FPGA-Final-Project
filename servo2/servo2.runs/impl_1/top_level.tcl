@@ -97,6 +97,8 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
@@ -104,8 +106,9 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param tcl.statsThreshold 360
   set_param chipscope.maxJobs 5
+  set_param checkpoint.writeSynthRtdsInDcp 1
+  set_param synth.incrementalSynthesisCache C:/Users/ajrbe/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-30568-hiccup/incrSyn
   set_param xicom.use_bs_reader 1
   set_param runs.launchOptions { -jobs 10  }
 OPTRACE "create in-memory project" START { }
@@ -121,7 +124,7 @@ OPTRACE "set parameters" START { }
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
   add_files -quiet {{C:/Users/ajrbe/Documents/School/ENEL 453/servo2/servo2/servo2.runs/synth_1/top_level.dcp}}
-  read_ip -quiet {{c:/Users/ajrbe/Documents/School/ENEL 453/servo2/servo2/servo2.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xci}}
+  read_ip -quiet {{C:/Users/ajrbe/Documents/School/ENEL 453/servo2/servo2/servo2.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xci}}
 OPTRACE "read constraints: implementation" START { }
   read_xdc {{C:/Users/ajrbe/Documents/School/ENEL 453/servo2/constraints.xdc}}
 OPTRACE "read constraints: implementation" END { }

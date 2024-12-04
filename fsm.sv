@@ -30,6 +30,8 @@ module fsm (
                         state <= 2'b01;
                     end else if ( left && ~right ) begin
                         state <= 2'b10;
+                    end else if ( left && right ) begin
+                        state <= 2'b11;
                     end
                 end
                 
